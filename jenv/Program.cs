@@ -32,13 +32,21 @@ namespace jenv
             string currentPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             // 解析json配置文件
             string jsonText = "";
-            using (StreamReader fileReader = new StreamReader(currentPath + "\\config.json"))
+            try
             {
-                while (!fileReader.EndOfStream)
+                using (StreamReader fileReader = new StreamReader(currentPath + "\\config.json"))
                 {
-                    jsonText += fileReader.ReadLine();
+                    while (!fileReader.EndOfStream)
+                    {
+                        jsonText += fileReader.ReadLine();
+                    }
                 }
             }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("未能找到config.json配置文件");
+            }
+
             Dictionary<string, string> config = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonText);
 
             // 动作
@@ -81,7 +89,7 @@ namespace jenv
 
             // 获取系统PATH变量
             string oldPaths = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine);
-            // 移除Jdk安装时默认设置的以及旧有的环境变量
+            
             if (oldPaths.IndexOf(DEFAULT_JAVA_PATH) != -1)
             {
                 oldPaths = RemoveDefaultJavaPath(oldPaths, oldJavaHome);
@@ -96,7 +104,7 @@ namespace jenv
         }
 
         /// <summary>
-        /// 移除Jdk默认安装时设置的环境变量
+        /// 移除Jdk安装时默认设置的以及旧有的环境变量
         /// </summary>
         /// <param name="oldPaths"></param>
         /// <returns></returns>
@@ -111,7 +119,7 @@ namespace jenv
                 {
                     continue;
                 }
-
+                // 排除旧有的java path
                 if (path.IndexOf(oldJavaHome + "\\bin") != -1)
                 {
                     continue;
@@ -119,7 +127,7 @@ namespace jenv
                 newPathList.Add(path);
             }
             string newPaths = "";
-            foreach(string item in newPathList)
+            foreach (string item in newPathList)
             {
                 newPaths += (item + ";");
             }
