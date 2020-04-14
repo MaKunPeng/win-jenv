@@ -11,6 +11,9 @@ namespace jenv
 {
     /// <summary>
     /// Windows Shell环境下切换Java版本的工具
+    /// 
+    /// <para>auhor: Aaron Ma</para>
+    /// <para>created date: 2020-4-15</para>
     /// </summary>
     public class Program
     {
@@ -45,6 +48,7 @@ namespace jenv
             catch (FileNotFoundException)
             {
                 Console.WriteLine("未能找到config.json配置文件");
+                return;
             }
 
             Dictionary<string, string> config = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonText);
