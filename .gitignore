@@ -1,0 +1,5 @@
+/jenv/bin
+/jenv/obj
+/jenv/Properties
+/jenv/jenv.csproj.user
+/.vs

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jenv", "jenv\jenv.csproj", "{954032C0-A983-4A84-9895-14AD6C8732CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{954032C0-A983-4A84-9895-14AD6C8732CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954032C0-A983-4A84-9895-14AD6C8732CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954032C0-A983-4A84-9895-14AD6C8732CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954032C0-A983-4A84-9895-14AD6C8732CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F538137-A5CA-4F34-AE5A-AB7BAA4645FC}
+	EndGlobalSection
+EndGlobal
